@@ -2,6 +2,7 @@
 import { Link } from 'react-router-dom';
 import TextEllipse from '../Components/TexEllipse'
 import { storieDatas } from '../Constants/storieDatas';
+import Image from 'next/image';
 
 
 
@@ -13,10 +14,10 @@ const Stories = () => {
       <div className="lg:max-w-[41vm] md:max-w-[70vm] sm:max-w-full max-w-full w-full h-auto flex items-center gap-x-3.5 overflow-x-scroll">
         <Link
           to="/"
-          className="flex items-center justify-center flex-col flex-shrink-0"
+          className="flex items-center justify-center flex-col shrink-0"
         >
-          <div className="w-16 h-16 rounded-full object-cover p-[2px] bg-green-500">
-            <img
+          <div className="w-16 h-16 rounded-full object-cover p-0.5 bg-green-500">
+            <Image
               src="/images/foodTray.jpeg"
               alt="storyImg"
               className="rounded-full w-full h-full object-cover p-[2.5px] bg-black"
@@ -28,10 +29,10 @@ const Stories = () => {
           <Link
             to="/"
             key={id}
-            className="flex items-center justify-center flex-col flex-shrink-0 "
+            className="flex items-center justify-center flex-col shrink-0 "
           >
-            <div className="w-16 h-16 rounded-full object-cover p-[2px] bg-gradient-to-r from-[#f02aa6] to-[#ff6f48] ">
-              <img
+            <div className="w-16 h-16 rounded-full object-cover p-0.5 bg-linear-to-r from-[#f02aa6] to-[#ff6f48] ">
+              <Image
                 src={image}
                 alt="storyImg"
                 className="rounded-full w-full h-full object-cover p-[2.5px] bg-black"
