@@ -3,6 +3,7 @@ import { supabase } from "../Lib/supabase";
 import { useAuth } from "../context/AuthContext";
 import { Heart, HeartOff } from "lucide-react"; // or any icons you prefer
 import CommentSection from "./CommentSection";
+import Image from "next/image";
 
 const PostCard = ({ post }) => {
   const { user } = useAuth();
@@ -61,7 +62,7 @@ const PostCard = ({ post }) => {
       <div className="mb-2 text-sm text-gray-400">{post.caption}</div>
 
       {post.media_type === "image" ? (
-        <img src={post.media_url} alt="Post" className="rounded-lg w-full" />
+        <Image src={post.media_url} alt="Post" className="rounded-lg w-full" />
       ) : (
         <video controls className="rounded-lg w-full">
           <source src={post.media_url} type="video/mp4" />

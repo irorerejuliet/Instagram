@@ -32,10 +32,10 @@ const FeedCard = () => {
                 <Link
                   to="/"
                   key={id}
-                  className="flex items-center justify-center flex-col flex-shrink-0 "
+                  className="flex items-center justify-center flex-col shrink-0 "
                 >
-                  <div className="w-10 h-10 rounded-full object-cover p-[2px] bg-gradient-to-r from-[#f02aa6] to-[#ff6f48] ">
-                    <img
+                  <div className="w-10 h-10 rounded-full object-cover p-0.5 bg-linear-to-r from-[#f02aa6] to-[#ff6f48] ">
+                    <Image
                       src={profileImg}
                       alt={profileImg}
                       className="rounded-full w-full h-full object-cover p-[2.5px] bg-black"
@@ -74,12 +74,12 @@ const FeedCard = () => {
               className="w-full h-auto flex items-center gap-x-2 text-base text-gray-200 font-medium my-2"
             >
               <div className="flex items-center">
-                <img
+                <Image
                   src={mutualFrndimg}
                   alt={likeCount}
                   className="w-5 h-5 rounded-full object-fill p-[1.5px] bg-black"
                 />
-                <img
+                <Image
                   src={mutualFrndimg2}
                   alt={likeCount}
                   className="w-5 h-5 rounded-full object-fill p-[1.5px] bg-black -ml-3"
