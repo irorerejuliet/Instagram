@@ -32,9 +32,9 @@ const FeedCard = () => {
                 <Link
                   to="/"
                   key={id}
-                  className="flex items-center justify-center flex-col flex-shrink-0 "
+                  className="flex items-center justify-center flex-col shrink-0 "
                 >
-                  <div className="w-10 h-10 rounded-full object-cover p-[2px] bg-gradient-to-r from-[#f02aa6] to-[#ff6f48] ">
+                  <div className="w-10 h-10 rounded-full object-cover p-0.5 bg-linear-to-r from-[#f02aa6] to-[#ff6f48] ">
                     <Image
                       src={profileImg}
                       alt={profileImg}

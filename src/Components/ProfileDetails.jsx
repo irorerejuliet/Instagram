@@ -8,6 +8,7 @@ import Tags from './Tags';
 import { RiCalendarEventFill, RiPriceTag2Fill } from 'react-icons/ri';
 import { LiaTableSolid } from 'react-icons/lia';
 import { highlightData } from '../Constants/highlightData';
+import Image from 'next/image';
 
 const ProfileDetails= () => {
   const [activeTab, setActiveTab] = useState("posts");
@@ -30,7 +31,7 @@ const ProfileDetails= () => {
       <div className="lg:w-[88%]  md:w-[88%] sm:w-full w-full  h-auto lg:block md:block sm:hidden hidden">
         {/* Your info section */}
         <div className="w-full h-auto flex items-center lg:gap-x-20 md:gap-x-16 sm:gap-x-12 gap-x-3.5 justify-center mb-10">
-          <img
+          <Image
             src="/images/ifueko.jpg"
             alt="profile-img"
             className="rounded-full md:w-44 w-32 lg:h-44 md:h-44 sm:h-36 h-36 object-cover"
@@ -90,10 +91,10 @@ const ProfileDetails= () => {
               <Link
                 to="/"
                 key={id}
-                className="flex items-center justify-between flex-col flex-shrink-0"
+                className="flex items-center justify-between flex-col shrink-0"
               >
-                <div className="w-28 h-28 rounded-full object-cover p-[2px] bg-gradient-to-r from-[#1d1d1d] to-[#1d1d1d]">
-                  <img
+                <div className="w-28 h-28 rounded-full object-cover p-0.5 bg-linear-to-r from-[#1d1d1d] to-[#1d1d1d]">
+                  <Image
                     src={image}
                     alt={username}
                     className="rounded-full h-full w-full object-cover p-[2.5px] bg-black"
