@@ -1,26 +1,24 @@
-import { Link } from "react-router-dom";
-import { TiHome } from "react-icons/ti";
-import { IoSearchOutline } from "react-icons/io5";
-import { TbFreezeRow } from "react-icons/tb";
-import { MdCreateNewFolder } from "react-icons/md";
+import { Clapperboard, FolderPlus, Home, Search } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const MobileNav = () => {
   const sideBarItems = [
     {
       link: "/search",
-      icon: <IoSearchOutline size={25} />,
+      icon: <Search size={25} />,
       id: 1,
     },
 
     {
       link: "/Reels",
-      icon: <TbFreezeRow size={25} />,
+      icon: <Clapperboard size={25} />,
       id: 2,
     },
 
     {
       link: "/Create",
-      icon: <MdCreateNewFolder size={25} />,
+      icon: <FolderPlus size={25} />,
       id: 3,
     },
   ];
@@ -29,14 +27,14 @@ const MobileNav = () => {
     <div className="w-full h-auto">
       <div className="w-full h-auto flex items-center gap-x-2 text-white">
         <Link
-          to="/"
+          href="/"
           className="w-full h-auto flex items-center gap-x-4 p-3 bg-transparent group"
         >
-          <TiHome size={25} className="text-white" />
+          <Home size={25} className="text-white" />
         </Link>
         {sideBarItems.map((item) => (
           <Link
-            to={item.link}
+            href={item.link}
             key={item.id}
             className="w-full h-auto flex items-center gap-x-4 p-3 bg-transparent  duration-500 group"
           >
@@ -44,11 +42,13 @@ const MobileNav = () => {
           </Link>
         ))}
         <Link
-          to="/profile"
+          href="/profile"
           className="w-full h-auto flex items-center gap-x-4 p-3 bg-transparent group"
         >
-          <img
+          <Image
             src="/images/profilepicture.jpg"
+            width={10}
+            height={10}
             alt="profile"
             className="w-6 h-6 object-cover rounded-full group-hover:scale-105 ease-out duration-300"
           />
