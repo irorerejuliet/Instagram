@@ -8,7 +8,7 @@ const TextEllipse = ({username = " ", maxlength = 8}) => {
 
   return (
     <div>
-      <p className="text-white text-sm mt-1 w-[70px] truncate">
+      <p className="text-white text-sm mt-1 w-17.5 truncate">
         {usernameEllipseStory}
       </p>
     </div>

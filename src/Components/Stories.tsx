@@ -1,8 +1,9 @@
 
-import { Link } from 'react-router-dom';
-import TextEllipse from '../Components/TexEllipse'
-import { storieDatas } from '../Constants/storieDatas';
+
+import Link from 'next/link';
+import TextEllipse from './TexEllipse'
 import Image from 'next/image';
+import { storieDatas } from './Constants/storieDatas';
 
 
 
@@ -13,7 +14,7 @@ const Stories = () => {
     <>
       <div className="lg:max-w-[41vm] md:max-w-[70vm] sm:max-w-full max-w-full w-full h-auto flex items-center gap-x-3.5 overflow-x-scroll">
         <Link
-          to="/"
+          href="/"
           className="flex items-center justify-center flex-col shrink-0"
         >
           <div className="w-16 h-16 rounded-full object-cover p-0.5 bg-green-500">
@@ -27,7 +28,7 @@ const Stories = () => {
         </Link>
         {storieDatas.map(({ id, image, username }) => (
           <Link
-            to="/"
+            href="/"
             key={id}
             className="flex items-center justify-center flex-col shrink-0 "
           >

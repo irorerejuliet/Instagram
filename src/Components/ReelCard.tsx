@@ -1,14 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { AiFillLike } from 'react-icons/ai';
-import { reelCardData } from '../Constants/reelCardData';
+import { ThumbsUp } from "lucide-react";
+import { reelCardData } from "./Constants/reelCardData";
+import Link from "next/link";
+
+
 
 const ReelCard = () => {
   return (
     <>
       {reelCardData.map(({ id, video, likeCount, commentCount }) => (
         <Link
-          to="/"
+          href="/"
           key={id}
           className="md:w-[24.675%] w-[32.5%] lg:h-[48vh] md:h-[40vh] sm:h-[30vh] relative group"
         >
@@ -22,11 +23,11 @@ const ReelCard = () => {
           />
           <div className="hidden group-hover:flex items-center justify-center gap-x-3 absolute top-[50%] left-[50%] translate-x-[50%]">
             <div className="flex items-center gap-x-1">
-              <AiFillLike />
+              <ThumbsUp />
               <p className="text-base text-white font-medium">{likeCount}</p>
             </div>
             <div className="flex items-center gap-x-1">
-              <AiFillLike />
+              <ThumbsUp />
               <p className="text-base text-white font-medium">{commentCount}</p>
             </div>
           </div>
