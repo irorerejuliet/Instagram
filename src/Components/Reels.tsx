@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ReelCard from './ReelCard'
 
 const Reels = () => {
