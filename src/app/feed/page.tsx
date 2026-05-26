@@ -1,7 +1,7 @@
-import FeedSection from "@/Components/feed/FeedSection"
+import FeedSection from "@/features/feed/FeedSection";
 
 const page = () => {
-  return (<FeedSection/> )
-}
+  return <FeedSection />;
+};
 
-export default page
+export default page;
