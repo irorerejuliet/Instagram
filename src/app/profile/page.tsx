@@ -1,8 +1,7 @@
-import Profile from "@/Components/profileSection/Profile"
-
+import Profile from "@/features/profileSection/Profile";
 
 const page = () => {
-  return (<Profile/>)
-}
+  return <Profile />;
+};
 
-export default page
+export default page;

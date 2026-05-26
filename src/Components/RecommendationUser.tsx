@@ -1,8 +1,5 @@
 import React from 'react'
 import ProfileNav from './ProfileNav';
-import { Link } from 'react-router-dom';
-import { recommendationUserData } from '../Constants/recommendationUserData';
-import { linkData } from '../Constants/linkData';
 
 const RecommendationUser = () => {
   return (
