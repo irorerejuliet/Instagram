@@ -17,9 +17,6 @@ const Home = () => {
       <div className="w-full min-h-screen px-3 pt-3 pb-20">
         <FeedCard /> {/* 👈 FeedPage or others will render here */}
       </div>
-      {/* THIS IS WHERE PAGES APPEAR */}
-      {/* <div className="w-full min-h-screen px-3 pt-3 pb-20">{children}</div>  */}
-
       {/* Mobile Navbar */}
       <div className="w-full h-auto py-1 px-3 border-t fixed bottom-0 left-0 lg:hidden sm:block bg-black z-50">
         <MobileNav />
