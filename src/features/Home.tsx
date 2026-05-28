@@ -1,6 +1,7 @@
 import FeedCard from "@/Components/FeedCard";
 import LargeNavBar from "../Components/LayOuts/LargeNavBar";
 import MobileNav from "../Components/LayOuts/MobileNav";
+import FeedSection from "./feed/FeedSection";
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
       </div> */}
       {/* Feed and profile routing section */}
       <div className="w-full min-h-screen px-3 pt-3 pb-20">
-        <FeedCard /> {/* 👈 FeedPage or others will render here */}
+        <FeedSection /> {/* 👈 FeedPage or others will render here */}
       </div>
       {/* Mobile Navbar */}
       <div className="w-full h-auto py-1 px-3 border-t fixed bottom-0 left-0 lg:hidden sm:block bg-black z-50">
