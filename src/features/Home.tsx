@@ -1,4 +1,4 @@
-import FeedCard from "@/Components/FeedCard";
+
 import LargeNavBar from "../Components/LayOuts/LargeNavBar";
 import MobileNav from "../Components/LayOuts/MobileNav";
 import FeedSection from "./feed/FeedSection";
