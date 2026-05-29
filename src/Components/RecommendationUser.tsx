@@ -1,5 +1,9 @@
-import React from 'react'
+
+import Image from 'next/image';
+import { recommendationUserData } from './Constants/recommendationUserData';
 import ProfileNav from './ProfileNav';
+import { linkData } from './Constants/linkData';
+import Link from 'next/link';
 
 const RecommendationUser = () => {
   return (
@@ -14,7 +18,7 @@ const RecommendationUser = () => {
               Suggested for you
             </h6>
             <Link
-              to="/"
+              href="/"
               className="text-sm font-semibold text-gray-300 hover:text-gray-600"
             >
               See all
@@ -27,12 +31,14 @@ const RecommendationUser = () => {
               key={id}
             >
               <Link
-                to="/profile"
+                href="/profile"
                 className="w-full h-auto flex items-center gap-x-2"
               >
-                <img
+                <Image
                   src={image}
                   alt={username}
+                  width={1000}
+                  height={1000}
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div className="flex items-start gap-y-0 flex-col">
@@ -45,7 +51,7 @@ const RecommendationUser = () => {
                 </div>
               </Link>
               <Link
-                to="/"
+                href="/"
                 className="text-[0.855rem] text-blue-500 hover:text-gray-200"
               >
                 {follow}
@@ -55,12 +61,12 @@ const RecommendationUser = () => {
         </div>
         {/* footer links */}
         <div className="w-full h-auto">
-          <div className="w-full h-auto flex items-center gap-x-[4px] flex-wrap mb-3">
+          <div className="w-full h-auto flex items-center gap-x-1 flex-wrap mb-3">
             {linkData.map(({ id, link, title }) => (
-              <div className="w-fit h-a flex items-center gap-x-[4px]" key={id}>
+              <div className="w-fit h-a flex items-center gap-x-1" key={id}>
                 <Link
-                  to={link}
-                  className="text-[0.8rem] font text-[#5b5b5b] hover:underline"
+                  href={link}
+                  className="text-[0.8rem] font text-[#5b5b5b] hover:underline "
                 >
                   {title}
                 </Link>

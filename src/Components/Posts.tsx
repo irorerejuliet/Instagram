@@ -1,12 +1,11 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from "next/link";
 
 const Posts = () => {
   return (
     <>
       <div className="w-full h-auto  flex items-center gap-1 flex-wrap">
         <Link
-          t="/"
+          href="/"
           className="md:w-[33%] w-[32.5%] lg:[40vh] md:h-[35vh] sm:h-[30vh] h-[25vh]"
           style={{
             backgroundImage: 'url("/images/mr-felix.jpg")',
@@ -16,7 +15,7 @@ const Posts = () => {
           }}
         />
         <Link
-          to="/"
+          href="/"
           className="md:w-[33%] w-[32.5%] lg:[40vh] md:h-[35vh] sm:h-[30vh] h-[25vh]"
           style={{
             backgroundImage: 'url("/images/Frank2.jpg")',
@@ -26,7 +25,7 @@ const Posts = () => {
           }}
         />
         <Link
-          to="/"
+          href="/"
           className="md:w-[33%] w-[32.5%] lg:[40vh] md:h-[35vh] sm:h-[30vh] h-[25vh]"
           style={{
             backgroundImage: 'url("/images/ebony2.jpg")',
@@ -36,7 +35,7 @@ const Posts = () => {
           }}
         />
         <Link
-          to="/"
+          href="/"
           className="md:w-[33%] w-[32.5%] lg:[40vh] md:h-[35vh] sm:h-[30vh] h-[25vh]"
           style={{
             backgroundImage: 'url("/images/NailedByJhay.jpg")',
@@ -46,7 +45,7 @@ const Posts = () => {
           }}
         />
         <Link
-          to="/"
+          href="/"
           className="md:w-[33%] w-[32.5%] lg:[40vh] md:h-[35vh] sm:h-[30vh] h-[25vh]"
           style={{
             backgroundImage: 'url("/images/tolu.jpg")',
@@ -56,7 +55,7 @@ const Posts = () => {
           }}
         />
         <Link
-          to="/"
+          href="/"
           className="md:w-[33%] w-[32.5%] lg:[40vh] md:h-[35vh] sm:h-[30vh] h-[25vh]"
           style={{
             backgroundImage: 'url("/images/joseph.jpg")',
@@ -66,7 +65,7 @@ const Posts = () => {
           }}
         />
         <Link
-          to="/"
+          href="/"
           className="md:w-[33%] w-[32.5%] lg:[40vh] md:h-[35vh] sm:h-[30vh] h-[25vh]"
           style={{
             backgroundImage: 'url("/images/spaggeti.jpg")',
@@ -76,7 +75,7 @@ const Posts = () => {
           }}
         />
         <Link
-          to="/"
+          href="/"
           className="md:w-[33%] w-[32.5%] lg:[40vh] md:h-[35vh] sm:h-[30vh] h-[25vh]"
           style={{
             backgroundImage: 'url("/images/testimony2.jpg")',
@@ -86,7 +85,7 @@ const Posts = () => {
           }}
         />
         <Link
-          to="/"
+          href="/"
           className="md:w-[33%] w-[32.5%] lg:[40vh] md:h-[35vh] sm:h-[30vh] h-[25vh]"
           style={{
             backgroundImage: 'url("/images/gold.jpg")',

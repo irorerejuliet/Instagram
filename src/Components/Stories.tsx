@@ -20,6 +20,8 @@ const Stories = () => {
           <div className="w-16 h-16 rounded-full object-cover p-0.5 bg-green-500">
             <Image
               src="/images/foodTray.jpeg"
+              width={10}
+              height={10}
               alt="storyImg"
               className="rounded-full w-full h-full object-cover p-[2.5px] bg-black"
             />
@@ -36,6 +38,8 @@ const Stories = () => {
               <Image
                 src={image}
                 alt="storyImg"
+                width={100}
+                height={100}
                 className="rounded-full w-full h-full object-cover p-[2.5px] bg-black"
               />
             </div>

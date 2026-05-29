@@ -33,8 +33,8 @@ const FeedCard = () => {
                     <Image
                       src={profileImg}
                       alt={profileImg}
-                      width={493}
-                      height={511}
+                      width={40}
+                      height={50}
                       className="rounded-full w-full h-full object-cover p-[2.5px] bg-black"
                     />
                   </div>
@@ -51,8 +51,8 @@ const FeedCard = () => {
             <div className="w-full lg:max-h-[75vh] md:max-h-[70vh] sm:max-h-[65vh] max-h-[50vh] lg:h-[70vh] md:h-[60vh] sm:h-[50vh] lg:min-h-[65vh] md:min-h-[55vh] sm:min-h-[50vh] border border-gray-300 rounded overflow-hidden mb-3">
               <Image
                 src={postImg}
-                width={20}
-                height={20}
+                width={493}
+                height={511}
                 alt={caption}
                 className="w-full rounded object-center"
               />

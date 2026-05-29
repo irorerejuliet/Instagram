@@ -2,12 +2,12 @@ export const highlightData = [
   {
     id: 1,
     username: "Adventure",
-    image: "/images/adventure.jpeg",
+    image: "/images/glasses.jpeg",
   },
   {
     id: 2,
     username: "Car",
-    image: "/images/car.jpeg",
+    image: "/images/nativeTwo.jpeg",
   },
   {
     id: 3,
@@ -16,8 +16,8 @@ export const highlightData = [
   },
   {
     id: 4,
-    username: "Friendshipquote",
-    image: "/images/frienshipQuote.jpeg",
+    username: "Harmony",
+    image: "/images/corpMember.jpeg",
   },
   {
     id: 5,
@@ -44,5 +44,4 @@ export const highlightData = [
     username: "smilingGirl",
     image: "/images/smilingGirl.jpeg",
   },
- 
 ];
