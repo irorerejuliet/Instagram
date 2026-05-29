@@ -1,21 +1,20 @@
-"use client"
+"use client";
 
-import Tab from './Tab';
-import Posts from './Posts';
-import Reels from './Reels';
-import Tags from './Tags';
-import Link from 'next/link';
-import Image from 'next/image';
-import { highlightData } from './Constants/highlightData';
-import { Clapperboard, Grid3X3, Link2, Settings, Tag } from 'lucide-react';
-import { useState } from 'react';
+import Tab from "./Tab";
+import Posts from "./Posts";
+import Reels from "./Reels";
+import Tags from "./Tags";
+import Link from "next/link";
+import Image from "next/image";
+import { highlightData } from "./Constants/highlightData";
+import { Clapperboard, Grid3X3, Link2, Settings, Tag } from "lucide-react";
+import { useState } from "react";
 
-const ProfileDetails= () => {
+const ProfileDetails = () => {
   const [activeTab, setActiveTab] = useState("posts");
-  const [isContentVisible, setContentVisible] = useState(true)
+  const [isContentVisible, setContentVisible] = useState(true);
 
-  
-  const handleTabClick = (tab) => {
+  const handleTabClick = (tab: string) => {
     setContentVisible(false);
 
     // delay animation
@@ -24,20 +23,26 @@ const ProfileDetails= () => {
       setContentVisible(true);
     }, 300);
   };
-  
-   
+
   return (
     <>
-      <div className="w-full max-w-5xl mx-auto px-4">
+      {/* 
+        pt-24 creates top clearance if you have a sticky navigation bar.
+        max-w-[935px] forces the large screen layout to match standard clean web structures.
+      */}
+      <div className="w-full max-w-233.75 mx-auto hidden sm:block pt-20 pb-12 px-4">
         {/* Your info section */}
-        <div className="w-full h-auto flex items-center lg:gap-x-20 md:gap-x-16 sm:gap-x-12 gap-x-3.5 justify-center mb-10">
-          <Image
-            src="/images/faceCard.jpeg"
-            width={200}
-            height={200}
-            alt="profile-img"
-            className="rounded-full md:w-44 w-32 lg:h-44 md:h-44 sm:h-36 h-36 object-cover"
-          />
+        <div className="w-full flex items-center lg:gap-x-20 md:gap-x-16 sm:gap-x-12 gap-x-3.5 justify-center mb-12">
+          <div className="shrink-0">
+            <Image
+              src="/images/ifueko.jpg"
+              width={176}
+              height={176}
+              alt="profile-img"
+              className="rounded-full md:w-44 w-32 lg:h-44 md:h-44 sm:h-36 h-36 object-cover"
+            />
+          </div>
+
           <div className="flex items-start flex-col">
             <div className="flex items-center gap-x-5 mb-4">
               <Link
@@ -56,7 +61,8 @@ const ProfileDetails= () => {
               </div>
               <Settings size={20} className="text-white" />
             </div>
-            {/* Post, followes, following */}
+
+            {/* Post, followers, following */}
             <div className="flex items-center gap-x-6 mb-4">
               <h6 className="text-base text-gray-100 font-normal">12 Posts</h6>
               <Link href="/" className="text-base text-gray-100 font-normal">
@@ -66,10 +72,12 @@ const ProfileDetails= () => {
                 200 Following
               </Link>
             </div>
+
             {/* fullname */}
             <p className="text-base text-gray-100 font-normal">
-              Frontend Developer
+              FrontEnd Developer
             </p>
+
             {/* Bio */}
             <p className="text-base text-gray-100 font-normal">
               IRORERE JULIET <br />
@@ -77,9 +85,10 @@ const ProfileDetails= () => {
               LifeLong Learner <br />
               web/App Developer <br />
             </p>
+
             {/* Links */}
-            <p className="text-base text-gray-100 font-normal flex items-center gap-x-2">
-              <Link2 />
+            <p className="text-base text-gray-100 font-normal flex items-center gap-x-2 mt-2">
+              <Link2 size={16} />
               <Link
                 href="/"
                 className="text-blue-500 hover:underline font-medium"
@@ -89,33 +98,37 @@ const ProfileDetails= () => {
             </p>
           </div>
         </div>
+
         {/* Highlight section */}
-        <div className="w-full h-auto flex items-center gap-x-9 mb-10">
-          <div className="max-w-[61vw] w-full h-auto flex items-center gap-x-3.5 overflow-x-scroll">
+        <div className="w-full flex items-center mb-12 border-b border-zinc-800 pb-6">
+          <div className="w-full flex items-center gap-x-6 overflow-x-auto no-scrollbar py-2">
             {highlightData.map(({ id, image, username }) => (
               <Link
                 href="/"
                 key={id}
-                className="flex items-center justify-between flex-col shrink-0"
+                className="flex items-center justify-center flex-col shrink-0"
               >
-                <div className="w-28 h-28 rounded-full object-cover p-0.5 bg-linear-to-r from-[#1d1d1d] to-[#1d1d1d]">
+                <div className="w-24 h-24 rounded-full p-0.5 bg-neutral-800">
                   <Image
                     src={image}
                     alt={username}
-                    width={100}
-                    height={100}
+                    width={96}
+                    height={96}
                     className="rounded-full h-full w-full object-cover p-[2.5px] bg-black"
                   />
                 </div>
-                <p className="text-white text-sm mt-1">{username}</p>
+                <p className="text-gray-300 text-xs mt-2 text-center max-w-24 truncate">
+                  {username}
+                </p>
               </Link>
             ))}
           </div>
         </div>
+
         {/* Post, Reels, Tagged section */}
-        <div className="w-full h-auto">
-          {/* tag section */}
-          <div className="w-full h-auto flex items-center justify-center gap-x-6 mb-4 border-t border-[#313131]">
+        <div className="w-full">
+          {/* tag tabs wrapper */}
+          <div className="w-full flex items-center justify-center gap-x-12 mb-4 border-t border-[#313131]">
             <Tab
               label="POSTS"
               icon={<Grid3X3 size={16} />}
@@ -137,6 +150,7 @@ const ProfileDetails= () => {
               onclick={() => handleTabClick("tagged")}
             />
           </div>
+
           {/* Tab content section */}
           <div
             className={`mt-4 transition-opacity duration-300 ease-out ${
@@ -151,6 +165,6 @@ const ProfileDetails= () => {
       </div>
     </>
   );
-}
+};
 
-export default ProfileDetails
+export default ProfileDetails;
