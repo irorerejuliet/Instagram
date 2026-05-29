@@ -11,6 +11,8 @@ const TopNavBar = () => {
           <Image
             src="/images/Logo.png"
             alt="logo"
+            width={50}
+            height={50}
             className="w-37.5 invert object-contain h-auto"
           />
         </Link>
