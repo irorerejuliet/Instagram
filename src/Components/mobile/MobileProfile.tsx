@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+"use client"
 
 import { highlightData } from "../Constants/highlightData";
+
+
 import Image from "next/image";
 import Link from "next/link";
 import { Clapperboard, Grid3X3, LinkIcon, Tag } from "lucide-react";
@@ -8,6 +10,7 @@ import Tab from "../Tab";
 import Posts from "../Posts";
 import Reels from "../Reels";
 import Tags from "../Tags";
+import { useState } from "react";
 
 type TabType = "posts" | "reels" | "tagged";
 const MobileProfile = () => {
@@ -30,6 +33,8 @@ const MobileProfile = () => {
         <div className="w-full h-auto flex items-center lg:gap-x-20 md:gap-x-16 sm:gap-x-12 gap-x-3.5 justify-center mb-10">
           <Image
             src="/images/ProfilePictureMobile.jpg"
+            width={100}
+            height={100}
             alt="profile-img"
             className="rounded-full md:w-44 w-20  h-20 object-cover"
           />
@@ -80,6 +85,8 @@ const MobileProfile = () => {
                   <Image
                     src={image}
                     alt={username}
+                    width={100}
+                    height={100}
                     className="rounded-full h-full w-full object-cover p-[2.5px] bg-black"
                   />
                   <p className="text-white text-sm mt-1">{username}</p>

@@ -25,9 +25,7 @@ const FeedSection = () => {
                 posts.map((post) => <PostCard key={post.id} post={post} />)
               )} */}
               <FeedCard />
-              <FeedCard />
-              <FeedCard />
-              <FeedCard />
+              
             </div>
           </div>
         </div>

@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import { IoIosLink, IoIosSettings, } from 'react-icons/io';
-import { Link } from 'react-router-dom'
+"use client"
+
 import Tab from './Tab';
 import Posts from './Posts';
 import Reels from './Reels';
 import Tags from './Tags';
-import { RiCalendarEventFill, RiPriceTag2Fill } from 'react-icons/ri';
-import { LiaTableSolid } from 'react-icons/lia';
-import { highlightData } from '../Constants/highlightData';
+import Link from 'next/link';
 import Image from 'next/image';
+import { highlightData } from './Constants/highlightData';
+import { Clapperboard, Grid3X3, Link2, Settings, Tag } from 'lucide-react';
+import { useState } from 'react';
 
 const ProfileDetails= () => {
   const [activeTab, setActiveTab] = useState("posts");
@@ -28,18 +28,23 @@ const ProfileDetails= () => {
    
   return (
     <>
-      <div className="lg:w-[88%]  md:w-[88%] sm:w-full w-full  h-auto lg:block md:block sm:hidden hidden">
+      <div className="w-full max-w-5xl mx-auto px-4">
         {/* Your info section */}
         <div className="w-full h-auto flex items-center lg:gap-x-20 md:gap-x-16 sm:gap-x-12 gap-x-3.5 justify-center mb-10">
           <Image
-            src="/images/ifueko.jpg"
+            src="/images/faceCard.jpeg"
+            width={200}
+            height={200}
             alt="profile-img"
             className="rounded-full md:w-44 w-32 lg:h-44 md:h-44 sm:h-36 h-36 object-cover"
           />
           <div className="flex items-start flex-col">
             <div className="flex items-center gap-x-5 mb-4">
-              <Link to="/profile" className="text-lg text-gray-200 font-normal">
-              Code-With
+              <Link
+                href="/profile"
+                className="text-lg text-gray-200 font-normal"
+              >
+                Code-With
               </Link>
               <div className="flex items-center gap-x-2">
                 <button className="bg-[#1d1d1d] rounded-lg px-4 py-1.5 text-base text-white font-normal hover:bg-[#2f2f2f] ease-out duration-150">
@@ -49,34 +54,34 @@ const ProfileDetails= () => {
                   Veiw archive
                 </button>
               </div>
-              <IoIosSettings size={20} className="text-white" />
+              <Settings size={20} className="text-white" />
             </div>
             {/* Post, followes, following */}
             <div className="flex items-center gap-x-6 mb-4">
               <h6 className="text-base text-gray-100 font-normal">12 Posts</h6>
-              <Link to="/" className="text-base text-gray-100 font-normal">
+              <Link href="/" className="text-base text-gray-100 font-normal">
                 3200 Followers
               </Link>
-              <Link to="/" className="text-base text-gray-100 font-normal">
+              <Link href="/" className="text-base text-gray-100 font-normal">
                 200 Following
               </Link>
             </div>
             {/* fullname */}
             <p className="text-base text-gray-100 font-normal">
-              FrontEnd Developer
+              Frontend Developer
             </p>
             {/* Bio */}
             <p className="text-base text-gray-100 font-normal">
-               IRORERE JULIET <br />
+              IRORERE JULIET <br />
               Web Enthusiast <br />
               LifeLong Learner <br />
               web/App Developer <br />
             </p>
             {/* Links */}
             <p className="text-base text-gray-100 font-normal flex items-center gap-x-2">
-              <IoIosLink />
+              <Link2 />
               <Link
-                to="/"
+                href="/"
                 className="text-blue-500 hover:underline font-medium"
               >
                 irorerejuliet@gmail.com
@@ -89,7 +94,7 @@ const ProfileDetails= () => {
           <div className="max-w-[61vw] w-full h-auto flex items-center gap-x-3.5 overflow-x-scroll">
             {highlightData.map(({ id, image, username }) => (
               <Link
-                to="/"
+                href="/"
                 key={id}
                 className="flex items-center justify-between flex-col shrink-0"
               >
@@ -97,10 +102,12 @@ const ProfileDetails= () => {
                   <Image
                     src={image}
                     alt={username}
+                    width={100}
+                    height={100}
                     className="rounded-full h-full w-full object-cover p-[2.5px] bg-black"
                   />
-                  <p className="text-white text-sm mt-1">{username}</p>
                 </div>
+                <p className="text-white text-sm mt-1">{username}</p>
               </Link>
             ))}
           </div>
@@ -111,20 +118,22 @@ const ProfileDetails= () => {
           <div className="w-full h-auto flex items-center justify-center gap-x-6 mb-4 border-t border-[#313131]">
             <Tab
               label="POSTS"
-              icon={<LiaTableSolid />}
+              icon={<Grid3X3 size={16} />}
               isActive={activeTab === "posts"}
               onclick={() => handleTabClick("posts")}
             />
+
             <Tab
               label="REELS"
-              icon={<RiCalendarEventFill />}
+              icon={<Clapperboard size={16} />}
               isActive={activeTab === "reels"}
               onclick={() => handleTabClick("reels")}
             />
+
             <Tab
               label="TAGGED"
-              icon={<RiPriceTag2Fill />}
-              isActive={activeTab === "tag"}
+              icon={<Tag size={16} />}
+              isActive={activeTab === "tagged"}
               onclick={() => handleTabClick("tagged")}
             />
           </div>
