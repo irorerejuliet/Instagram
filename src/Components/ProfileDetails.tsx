@@ -6,9 +6,10 @@ import Reels from "./Reels";
 import Tags from "./Tags";
 import Link from "next/link";
 import Image from "next/image";
-import { highlightData } from "./constants/highlightData";
+
 import { Clapperboard, Grid3X3, Link2, Settings, Tag } from "lucide-react";
 import { useState } from "react";
+import { highlightData } from "./constants/highlightData";
 
 const ProfileDetails = () => {
   const [activeTab, setActiveTab] = useState("posts");
