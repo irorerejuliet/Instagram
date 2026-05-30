@@ -1,7 +1,7 @@
-import MobileProfile from "@/Components/mobile/MobileProfile"
+import MobileProfile from "@/components/mobile/MobileProfile";
 
 const page = () => {
-  return (<MobileProfile/> )
-}
+  return <MobileProfile />;
+};
 
-export default page
+export default page;
