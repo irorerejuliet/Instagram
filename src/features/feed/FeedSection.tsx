@@ -1,5 +1,5 @@
 import FeedCard from "@/components/FeedCard";
-import TopNavBar from "@/components/Layouts/TopNavBar";
+import TopNavBar from "@/components/layouts/TopNavBar";
 import RecommendationUser from "@/components/RecommendationUser";
 import Stories from "@/components/Stories";
 

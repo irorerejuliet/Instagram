@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { Clapperboard, Grid3X3, LinkIcon, Tag } from "lucide-react";
 import { highlightData } from "@/components/constants/highlightData";
-import Posts from "@/components/Posts";
-import Reels from "@/components/Reels";
-import Tags from "@/components/Tags";
-import Tab from "@/components/Tab";
+import { useState } from "react";
+
+// Safe relative paths back to your active components directory
+import Posts from "../../components/Posts";
+import Reels from "../../components/Reels";
+import Tags from "../../components/Tags";
+import Tab from "../../components/Tab";
 
 type TabType = "posts" | "reels" | "tagged";
+
 const MobileProfile = () => {
   const [activeTab, setActiveTab] = useState<TabType>("posts");
   const [isContentVisible, setContentVisible] = useState(true);
@@ -23,6 +27,7 @@ const MobileProfile = () => {
       setContentVisible(true);
     }, 300);
   };
+
   return (
     <>
       <div className="w-full h-auto md:hidden block text-white">
@@ -31,7 +36,9 @@ const MobileProfile = () => {
           <Image
             src="/images/ProfilePictureMobile.jpg"
             alt="profile-img"
-            className="rounded-full md:w-44 w-20  h-20 object-cover"
+            className="rounded-full md:w-44 w-20 h-20 object-cover"
+            width={80}
+            height={80}
           />
           <div className="flex items-start flex-col gap-y-3">
             {/* username */}
@@ -48,8 +55,8 @@ const MobileProfile = () => {
               </button>
             </div>
           </div>
-          {/* for refrence use only */}
         </div>
+
         {/* Bio */}
         <p className="text-base text-gray-100 font-normal">
           FrontEnd Developer
@@ -60,6 +67,7 @@ const MobileProfile = () => {
           LifeLong Learner <br />
           web/App Developer <br />
         </p>
+
         {/* Link section */}
         <p className="text-base text-gray-100 font-normal flex items-center gap-x-2 mb-5">
           <LinkIcon size={18} />
@@ -67,9 +75,10 @@ const MobileProfile = () => {
             irorerejuliet@gmail.com
           </Link>
         </p>
+
         {/* Highlight section */}
         <div className="w-full h-auto flex items-center gap-x-9 mb-10">
-          <div className=" w-full h-auto flex items-center gap-x-3.5 overflow-x-scroll">
+          <div className="w-full h-auto flex items-center gap-x-3.5 overflow-x-scroll">
             {highlightData.map(({ id, image, username }) => (
               <Link
                 href="/"
@@ -81,6 +90,8 @@ const MobileProfile = () => {
                     src={image}
                     alt={username}
                     className="rounded-full h-full w-full object-cover p-[2.5px] bg-black"
+                    width={64}
+                    height={64}
                   />
                   <p className="text-white text-sm mt-1">{username}</p>
                 </div>
@@ -88,6 +99,7 @@ const MobileProfile = () => {
             ))}
           </div>
         </div>
+
         {/* Posts, followers, following */}
         <div className="w-full h-auto flex items-center justify-around border-t border-t-[#1d1d1d]">
           <div className="flex items-center flex-col py-3">
@@ -103,6 +115,7 @@ const MobileProfile = () => {
             <p className="text-sm text-white/40 font-thin">Following</p>
           </div>
         </div>
+
         {/* Post, Reels, Tagged section */}
         <div className="w-full h-auto">
           {/* tag section */}
@@ -128,6 +141,7 @@ const MobileProfile = () => {
               onclick={() => handleTabClick("tagged")}
             />
           </div>
+
           {/* Tab content section */}
           <div
             className={`mt-4 transition-opacity duration-300 ease-out ${

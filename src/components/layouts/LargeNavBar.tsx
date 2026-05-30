@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { sidebarLinks } from "../constants/sidebarLinks";
 
-const LargeNavbar = () => {
+const LargeNavBar = () => {
   return (
     <div className="w-full h-full relative">
       <Link
@@ -100,4 +100,4 @@ const LargeNavbar = () => {
   );
 };
 
-export default LargeNavbar;
+export default LargeNavBar;
