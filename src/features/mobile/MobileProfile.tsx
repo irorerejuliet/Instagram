@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+"use client"
 
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import Posts from "@/components/Posts";
 import Reels from "@/components/Reels";
 import Tags from "@/components/Tags";
 import Tab from "@/components/Tab";
+import { useState } from "react";
 
 type TabType = "posts" | "reels" | "tagged";
 const MobileProfile = () => {

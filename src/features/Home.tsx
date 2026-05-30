@@ -1,6 +1,6 @@
-import LargeNavbar from "@/components/Layouts/LargeNavBar";
+import LargeNavbar from "@/components/layouts/LargeNavBar";
 import FeedSection from "./feed/FeedSection";
-import MobileNav from "@/components/Layouts/MobileNav";
+import MobileNav from "@/components/layouts/MobileNav";
 
 
 const Home = () => {
