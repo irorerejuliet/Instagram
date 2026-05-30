@@ -1,6 +1,8 @@
 import { ThumbsUp } from "lucide-react";
-import { reelCardData } from "./constants/reelCardData";
+
 import Link from "next/link";
+import { reelCardData } from "./constants/reelCardData";
+
 
 const ReelCard = () => {
   return (

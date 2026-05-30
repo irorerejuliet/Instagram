@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { feedData } from "./constants/feedData";
 import Link from "next/link";
 import {
   Bookmark,
@@ -9,6 +8,8 @@ import {
   Send,
   Smile,
 } from "lucide-react";
+import { feedData } from "./constants/feedData";
+
 
 const FeedCard = () => {
   return (

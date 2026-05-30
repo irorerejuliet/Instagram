@@ -1,8 +1,10 @@
 import Image from "next/image";
-import { recommendationUserData } from "./constants/recommendationUserData";
 import ProfileNav from "./ProfileNav";
-import { linkData } from "./constants/linkData";
+
 import Link from "next/link";
+import { recommendationUserData } from "./constants/recommendationUserData";
+import { linkData } from "./constants/linkData";
+
 
 const RecommendationUser = () => {
   return (

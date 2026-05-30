@@ -1,8 +1,7 @@
-import FeedCard from "../../Components/FeedCard";
-import TopNavBar from "../../Components/LayOuts/TopNavBar";
-import RecommendationUser from "../../Components/RecommendationUser";
-import Stories from "../../Components/Stories";
-
+import FeedCard from "@/components/FeedCard";
+import TopNavBar from "@/components/Layouts/TopNavBar";
+import RecommendationUser from "@/components/RecommendationUser";
+import Stories from "@/components/Stories";
 
 const FeedSection = () => {
   return (
@@ -25,7 +24,6 @@ const FeedSection = () => {
                 posts.map((post) => <PostCard key={post.id} post={post} />)
               )} */}
               <FeedCard />
-              
             </div>
           </div>
         </div>
