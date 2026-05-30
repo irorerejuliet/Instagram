@@ -1,9 +1,8 @@
-
-import Image from 'next/image';
-import { recommendationUserData } from './Constants/recommendationUserData';
-import ProfileNav from './ProfileNav';
-import { linkData } from './Constants/linkData';
-import Link from 'next/link';
+import Image from "next/image";
+import { recommendationUserData } from "./constants/recommendationUserData";
+import ProfileNav from "./ProfileNav";
+import { linkData } from "./constants/linkData";
+import Link from "next/link";
 
 const RecommendationUser = () => {
   return (
@@ -81,6 +80,6 @@ const RecommendationUser = () => {
       </div>
     </>
   );
-}
+};
 
-export default RecommendationUser
+export default RecommendationUser;

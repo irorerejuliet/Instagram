@@ -1,7 +1,4 @@
-"use client"
-
-import { highlightData } from "../Constants/highlightData";
-
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -11,6 +8,8 @@ import Posts from "../Posts";
 import Reels from "../Reels";
 import Tags from "../Tags";
 import { useState } from "react";
+import { highlightData } from "../constants/highlightData";
+
 
 type TabType = "posts" | "reels" | "tagged";
 const MobileProfile = () => {

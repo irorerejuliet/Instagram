@@ -1,8 +1,14 @@
-
-import Image from 'next/image';
-import { feedData } from './Constants/feedData';
-import Link from 'next/link';
-import { Bookmark, Ellipsis, Heart, MessageCircle, Send, Smile } from 'lucide-react';
+import Image from "next/image";
+import { feedData } from "./constants/feedData";
+import Link from "next/link";
+import {
+  Bookmark,
+  Ellipsis,
+  Heart,
+  MessageCircle,
+  Send,
+  Smile,
+} from "lucide-react";
 
 const FeedCard = () => {
   return (
@@ -119,6 +125,6 @@ const FeedCard = () => {
       )}
     </>
   );
-}
+};
 
-export default FeedCard
+export default FeedCard;
