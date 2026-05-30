@@ -1,7 +1,8 @@
 
 
 
-import LargeNavbar from "@/components/layouts/LargeNavbar";
+
+import LargeNavBar from "@/components/layouts/LargeNavbar";
 import FeedSection from "./feed/FeedSection";
 import MobileNav from "@/components/layouts/MobileNav";
 
@@ -11,7 +12,7 @@ const Home = () => {
     <div className="w-full h-auto flex items-start justify-between lg:gap-x-32 md:gap-x-16 sm:gap-x-8 gap-x-4 relative">
       {/* Sidebar */}
       <div className="lg:w-[16%] md:w-[17%] h-screen pt-10 px-3 border-r border-gray-500 sticky top-0 left-0 lg:block md:block hidden">
-        <LargeNavbar/>
+        <LargeNavBar/>
       </div>
 
       {/* Feed and profile routing section */}
