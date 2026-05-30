@@ -3,6 +3,7 @@ import TextEllipse from "./TexEllipse";
 import Image from "next/image";
 import { storieDatas } from "./constants/storieDatas";
 
+
 const Stories = () => {
   return (
     <>
