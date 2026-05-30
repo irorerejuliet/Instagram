@@ -1,7 +1,7 @@
-import FeedCard from "../../components/FeedCard";
-import TopNavBar from "../../components/Layouts/TopNavBar";
-import RecommendationUser from "../../components/RecommendationUser";
-import Stories from "../../components/Stories";
+import FeedCard from "@/components/FeedCard";
+import TopNavBar from "@/components/Layouts/TopNavBar";
+import RecommendationUser from "@/components/RecommendationUser";
+import Stories from "@/components/Stories";
 
 const FeedSection = () => {
   return (

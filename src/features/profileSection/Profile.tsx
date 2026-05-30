@@ -1,5 +1,5 @@
-import MobileProfile from "../../components/mobile/MobileProfile";
-import ProfileDetails from "../../components/ProfileDetails";
+import ProfileDetails from "@/components/ProfileDetails";
+import MobileProfile from "../mobile/MobileProfile";
 
 const Profile = () => {
   return (
@@ -7,7 +7,7 @@ const Profile = () => {
       {/* profile for big screem */}
       <ProfileDetails />
       {/* profile for larfe screen */}
-      <MobileProfile />
+      <MobileProfile/>
     </div>
   );
 };
