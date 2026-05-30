@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { feedData } from "./constants/feedData";
 
+
 const FeedCard = () => {
   return (
     <>

@@ -1,5 +1,5 @@
-import MobileProfile from "../../Components/mobile/MobileProfile";
-import ProfileDetails from "../../Components/ProfileDetails";
+import MobileProfile from "../../components/mobile/MobileProfile";
+import ProfileDetails from "../../components/ProfileDetails";
 
 const Profile = () => {
   return (

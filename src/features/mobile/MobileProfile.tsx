@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 
-
 import Image from "next/image";
 import Link from "next/link";
 import { Clapperboard, Grid3X3, LinkIcon, Tag } from "lucide-react";
-import { highlightData } from "@/Components/constants/highlightData";
-import Posts from "@/Components/Posts";
-import Reels from "@/Components/Reels";
-import Tags from "@/Components/Tags";
-import Tab from "@/Components/Tab";
-
+import { highlightData } from "@/components/constants/highlightData";
+import Posts from "@/components/Posts";
+import Reels from "@/components/Reels";
+import Tags from "@/components/Tags";
+import Tab from "@/components/Tab";
 
 type TabType = "posts" | "reels" | "tagged";
 const MobileProfile = () => {
