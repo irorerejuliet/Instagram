@@ -6,7 +6,7 @@ import Reels from "./Reels";
 import Tags from "./Tags";
 import Link from "next/link";
 import Image from "next/image";
-import { highlightData } from "./Constants/highlightData";
+import { highlightData } from "./constants/highlightData";
 import { Clapperboard, Grid3X3, Link2, Settings, Tag } from "lucide-react";
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ const ProfileDetails = () => {
         pt-24 creates top clearance if you have a sticky navigation bar.
         max-w-[935px] forces the large screen layout to match standard clean web structures.
       */}
-      <div className="w-full max-w-233.75 mx-auto hidden sm:block pt-20 pb-12 px-4">
+      <div className="w-full max-w-233.75 mx-auto hidden sm:block lg:pt-20 pb-12 px-4">
         {/* Your info section */}
         <div className="w-full flex items-center lg:gap-x-20 md:gap-x-16 sm:gap-x-12 gap-x-3.5 justify-center mb-12">
           <div className="shrink-0">

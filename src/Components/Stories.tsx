@@ -1,13 +1,7 @@
-
-
-import Link from 'next/link';
-import TextEllipse from './TexEllipse'
-import Image from 'next/image';
-import { storieDatas } from './Constants/storieDatas';
-
-
-
-
+import Link from "next/link";
+import TextEllipse from "./TexEllipse";
+import Image from "next/image";
+import { storieDatas } from "./constants/storieDatas";
 
 const Stories = () => {
   return (
@@ -49,6 +43,6 @@ const Stories = () => {
       </div>
     </>
   );
-}
+};
 
-export default Stories
+export default Stories;
