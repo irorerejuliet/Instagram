@@ -2,7 +2,7 @@
 
 
 
-import LargeNavBar from "@/components/layouts/LargeNavbar";
+import LargeNavBar from "@/components/layouts/LargeNavBar";
 import FeedSection from "./feed/FeedSection";
 import MobileNav from "@/components/layouts/MobileNav";
 
