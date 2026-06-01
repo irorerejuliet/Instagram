@@ -5,9 +5,11 @@ import { SignupFormData, signupSchema } from "@/schemas/signupSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function SignupForm() {
   const supabase = createClient();
+  const router = useRouter();
 
   const {
     register,
@@ -17,19 +19,37 @@ export default function SignupForm() {
     resolver: zodResolver(signupSchema),
   });
 
-  const onSubmit = async (data: SignupFormData) => {
-    const { email, password } = data;
-    const { data: authData, error } = await supabase.auth.signUp({
-      email,
-      password,
-    });
+  
 
-    if (error) {
-      console.log(error.message);
-      return;
-    }
-    console.log("Signup successful", authData.user);
-  };
+ const onSubmit = async (data: SignupFormData) => {
+   const { email, password, username } = data;
+
+   const { data: authData, error } = await supabase.auth.signUp({
+     email,
+     password,
+   });
+
+   if (error) {
+     console.log(error.message);
+     return;
+   }
+
+   if (!authData.user) {
+     console.log("User is null (maybe email confirmation is enabled)");
+     return;
+   }
+
+   await supabase.from("profiles").insert({
+     id: authData.user.id,
+     username,
+     email,
+   });
+
+   console.log("Signup successful");
+
+   // 2. redirect user
+   router.push("/");
+ };;
     
   return (
     <div className="min-h-screen bg-black te flex items-center justify-center px-4">
