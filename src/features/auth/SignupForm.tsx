@@ -48,7 +48,7 @@ export default function SignupForm() {
    console.log("Signup successful");
 
    // 2. redirect user
-   router.push("/");
+   router.push("/login");
  };;
     
   return (
