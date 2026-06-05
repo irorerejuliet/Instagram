@@ -1,55 +1,66 @@
 "use client"
 import CustomInput from "@/components/CustomInput";
-import { createClient } from "@/lib/supabase/client";
 import { SignupFormData, signupSchema } from "@/schemas/signupSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useMutation,  useQueryClient } from "@tanstack/react-query";
+import axios, { AxiosError } from "axios";
+import { toast } from "sonner";
+
+type ApiError = {
+  message: string;
+};
+
 
 export default function SignupForm() {
-  const supabase = createClient();
   const router = useRouter();
+  const queryClient = useQueryClient()
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm({
     resolver: zodResolver(signupSchema),
+    defaultValues: {
+      username: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    }
   });
 
+  const {mutate, isPending} = useMutation({
+    mutationFn: async (payload: SignupFormData) => {
+      const { confirmPassword, ...cleanPayload } = payload;
+      const res = await axios.post("/api/auth/signup", cleanPayload, {
+        withCredentials: true
+      });
+      return res.data
+    },
+
+    onSuccess: async (data) => {
+      toast.success(data?.message);
+
+       reset();
+
+      await queryClient.invalidateQueries({
+        queryKey: ["user"],
+      })
+
+      router.push("/")
+    },
+
+    onError: (error: AxiosError<ApiError>) => {
+      toast.error(error?.response?.data?.message ?? "Something went wrong")
+    }
+  })
   
 
- const onSubmit = async (data: SignupFormData) => {
-   const { email, password, username } = data;
-
-   const { data: authData, error } = await supabase.auth.signUp({
-     email,
-     password,
-   });
-
-   if (error) {
-     console.log(error.message);
-     return;
-   }
-
-   if (!authData.user) {
-     console.log("User is null (maybe email confirmation is enabled)");
-     return;
-   }
-
-   await supabase.from("profiles").insert({
-     id: authData.user.id,
-     username,
-     email,
-   });
-
-   console.log("Signup successful");
-
-   // 2. redirect user
-   router.push("/login");
- };;
+ const onSubmit = (data: SignupFormData) => mutate(data);
     
   return (
     <div className="min-h-screen bg-black te flex items-center justify-center px-4">
@@ -101,9 +112,10 @@ export default function SignupForm() {
 
             <button
               type="submit"
+              disabled={isPending}
               className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition"
             >
-              Sign Up
+              {isPending ? "Creating account" : "create account"}
             </button>
           </form>
 

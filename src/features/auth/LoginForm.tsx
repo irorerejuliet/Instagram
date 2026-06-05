@@ -2,40 +2,71 @@
 import CustomInput from "@/components/CustomInput";
 import { LoginFormData, loginSchema } from "@/schemas/login";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import axios, {  AxiosError } from "axios";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
-export default function LoginForm() {
-  const router = useRouter();
-   const supabase = createClient();
+
+interface LoginDetailsProps {
+  redirect?: string;
+}
+
+type ApiError = {
+  message: string;
+};
+
+
+export default function LoginForm({redirect} : LoginDetailsProps) {
+    const router = useRouter();
+    const queryClient = useQueryClient();
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: "",
+      password: ""
+    }
   });
 
-  const onSubmit = async (data: LoginFormData) => {
-    const { email, password } = data;
+  const { mutate, status } = useMutation({
+    mutationFn: async (payload: LoginFormData) => {
+      const res = await axios.post("/api/auth/login", payload);
+      return res.data;
+    },
 
-    const { data: user, error } =
-      await supabase.auth.signInWithPassword({
-        email,
-        password,
+    onSuccess: (data) => {
+      toast.success(data.success);
+
+      reset();
+
+      const safeRedirect =
+        redirect && redirect.startsWith("/") ? redirect : "/";
+
+      queryClient.invalidateQueries({
+        queryKey: ["user"],
       });
 
-    if (error) {
-      console.log(error.message);
-      return;
-    }
+      router.replace(safeRedirect);
+    },
 
-    console.log("Login Successful");
-    router.push("/");
-  };
+    onError: (error: AxiosError<ApiError>) => {
+      toast.error(error.response?.data?.message ?? "Something went wrong");
+    },
+  });
+
+  const onSubmit = (data: LoginFormData) => {
+    mutate(data)
+  }
+
+  
        
         
   return (
@@ -67,9 +98,10 @@ export default function LoginForm() {
 
             <button
               type="submit"
+              disabled={status == "pending"}
               className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition"
             >
-              Log In
+              {status === "pending" ? "Logging in..." : "Log in"}
             </button>
           </form>
 
@@ -92,11 +124,13 @@ export default function LoginForm() {
             </span>
           </p>
         </div>
-
         <div className="border border-gray-800 mt-3 p-5 text-center">
           <p className="text-white text-sm">
             Don&apos;t have an account?
-            <Link href="/sign-up" className="text-blue-500 font-semibold cursor-pointer">
+            <Link
+              href="/sign-up"
+              className="text-blue-500 font-semibold cursor-pointer"
+            >
               Sign up
             </Link>
           </p>
