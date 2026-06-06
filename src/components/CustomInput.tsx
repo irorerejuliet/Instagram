@@ -1,23 +1,28 @@
-import { FieldError, UseFormRegister } from "react-hook-form";
+import {
+  FieldError,
+  FieldValues,
+  Path,
+  UseFormRegister,
+} from "react-hook-form";
 import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
-type CustomInputProps = {
+
+type CustomInputProps<T extends FieldValues> = {
   label?: string;
   type?: string;
   placeholder?: string;
-  name: string;
-  register: UseFormRegister<any>;
+  name: Path<T>;
+  register: UseFormRegister<T>;
   error?: FieldError;
 };
-export default function CustomInput({
-  label,
+export default function CustomInput<T extends FieldValues>({
   type = "text",
   placeholder,
   register,
   name,
   error,
-}: CustomInputProps) {
+}: CustomInputProps<T>) {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="relative">
