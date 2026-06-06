@@ -1,6 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import { LoginFormData } from "@/schemas/login";
-
+import { LoginFormData } from "@/schemas/loginSchema";
 
 import { NextRequest, NextResponse } from "next/server";
 

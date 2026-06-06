@@ -51,7 +51,7 @@ export default function SignupForm() {
         queryKey: ["user"],
       })
 
-      router.push("/")
+      router.push("/login")
     },
 
     onError: (error: AxiosError<ApiError>) => {

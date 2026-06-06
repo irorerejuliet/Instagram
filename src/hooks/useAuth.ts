@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/client";
-import { LoginFormData } from "@/schemas/login";
+import { LoginFormData } from "@/schemas/loginSchema";
 import { SignupFormData } from "@/schemas/signupSchema";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";

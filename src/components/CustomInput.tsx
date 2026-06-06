@@ -37,6 +37,7 @@ export default function CustomInput({
           {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
         </button>
       )}
+      {error && <p className="text-red-500 text-xs mt-1">{error.message}</p>}
     </div>
   );
 }
