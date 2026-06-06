@@ -1,14 +1,13 @@
-"use client"
+"use client";
 import CustomInput from "@/components/CustomInput";
-import { LoginFormData, loginSchema } from "@/schemas/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import axios, {  AxiosError } from "axios";
+import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-
+import { LoginFormData, loginSchema } from "@/schemas/loginSchema";
 
 interface LoginDetailsProps {
   redirect?: string;
@@ -18,10 +17,9 @@ type ApiError = {
   message: string;
 };
 
-
-export default function LoginForm({redirect} : LoginDetailsProps) {
-    const router = useRouter();
-    const queryClient = useQueryClient();
+export default function LoginForm({ redirect }: LoginDetailsProps) {
+  const router = useRouter();
+  const queryClient = useQueryClient();
 
   const {
     register,
@@ -32,11 +30,11 @@ export default function LoginForm({redirect} : LoginDetailsProps) {
     resolver: zodResolver(loginSchema),
     defaultValues: {
       email: "",
-      password: ""
-    }
+      password: "",
+    },
   });
 
-  const { mutate, status } = useMutation({
+  const { mutate, isPending } = useMutation({
     mutationFn: async (payload: LoginFormData) => {
       const res = await axios.post("/api/auth/login", payload);
       return res.data;
@@ -63,12 +61,10 @@ export default function LoginForm({redirect} : LoginDetailsProps) {
   });
 
   const onSubmit = (data: LoginFormData) => {
-    mutate(data)
-  }
+    console.log("FORM SUBMITTED", data);
+    mutate(data);
+  };
 
-  
-       
-        
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
@@ -98,10 +94,10 @@ export default function LoginForm({redirect} : LoginDetailsProps) {
 
             <button
               type="submit"
-              disabled={status == "pending"}
+              disabled={isPending}
               className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition"
             >
-              {status === "pending" ? "Logging in..." : "Log in"}
+              {isPending ? "Logging in..." : "Log in"}
             </button>
           </form>
 

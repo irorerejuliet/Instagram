@@ -35,7 +35,7 @@ export default function SignupForm() {
 
   const {mutate, isPending} = useMutation({
     mutationFn: async (payload: SignupFormData) => {
-      const { confirmPassword, ...cleanPayload } = payload;
+      const { confirmPassword: _, ...cleanPayload } = payload;
       const res = await axios.post("/api/auth/signup", cleanPayload, {
         withCredentials: true
       });
@@ -51,7 +51,7 @@ export default function SignupForm() {
         queryKey: ["user"],
       })
 
-      router.push("/")
+      router.push("/login")
     },
 
     onError: (error: AxiosError<ApiError>) => {
