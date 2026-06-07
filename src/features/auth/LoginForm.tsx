@@ -68,7 +68,7 @@ export default function LoginForm({ redirect }: LoginDetailsProps) {
   return (
     <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
-        <div className="border border-gray-800 bg-black p-8">
+        <div className="border border-gray-800 bg-red p-8">
           <h1 className="text-white text-5xl font-bold text-center mb-10">
             Instagram
           </h1>
