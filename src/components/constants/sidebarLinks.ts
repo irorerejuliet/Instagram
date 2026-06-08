@@ -52,8 +52,8 @@ export const sidebarLinks = [
   },
 
   {
-    name: "Create",
-    link: "/Create",
+    name: "Create Post",
+    link: "/create-post",
     icon: SquarePlus,
     id: 7,
   },

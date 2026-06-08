@@ -11,8 +11,17 @@ import { Clapperboard, Grid3X3, Link2, Settings, Tag } from "lucide-react";
 import { useState } from "react";
 import { highlightData } from "./constants/highlightData";
 
+type ProfileProps = {
+  id: string;
+  username: string;
+  full_name: string | null;
+  bio: string | null;
+  avatar_url: string | null;
+  email: string;
+};
 
-const ProfileDetails = () => {
+
+const ProfileDetails = ({profile, }: {profile: ProfileProps}) => {
   const [activeTab, setActiveTab] = useState("posts");
   const [isContentVisible, setContentVisible] = useState(true);
 
@@ -25,6 +34,9 @@ const ProfileDetails = () => {
       setContentVisible(true);
     }, 300);
   };
+
+
+
 
   return (
     <>
@@ -48,10 +60,10 @@ const ProfileDetails = () => {
           <div className="flex items-start flex-col">
             <div className="flex items-center gap-x-5 mb-4">
               <Link
-                href="/profile"
+                href={`/profile/${profile.username}`}
                 className="text-lg text-gray-200 font-normal"
               >
-                Code-With
+                {profile.username}
               </Link>
               <div className="flex items-center gap-x-2">
                 <button className="bg-[#1d1d1d] rounded-lg px-4 py-1.5 text-base text-white font-normal hover:bg-[#2f2f2f] ease-out duration-150">
@@ -77,25 +89,26 @@ const ProfileDetails = () => {
 
             {/* fullname */}
             <p className="text-base text-gray-100 font-normal">
-              FrontEnd Developer
+              {profile.full_name || "No name added"}
             </p>
 
             {/* Bio */}
             <p className="text-base text-gray-100 font-normal">
-              IRORERE JULIET <br />
+              {/* IRORERE JULIET <br />
               Web Enthusiast <br />
               LifeLong Learner <br />
-              web/App Developer <br />
+              web/App Developer <br /> */}
+              {profile.bio || "No bio yet"}
             </p>
 
             {/* Links */}
             <p className="text-base text-gray-100 font-normal flex items-center gap-x-2 mt-2">
               <Link2 size={16} />
               <Link
-                href="/"
+                href={`mailto:${profile.email}`}
                 className="text-blue-500 hover:underline font-medium"
               >
-                irorerejuliet@gmail.com
+                {profile.email}
               </Link>
             </p>
           </div>
