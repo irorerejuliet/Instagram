@@ -2,34 +2,34 @@ import { createClient } from "@/lib/supabase/server";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-
   const supabase = await createClient();
+
   const {
     data: { user },
-    error: userError,
   } = await supabase.auth.getUser();
-  console.log(user);
-  if (userError && !user) {
+
+  if (!user) {
     return NextResponse.json(
-      { success: false, message: userError.message },
-      { status: 404 },
+      { success: false, message: "Unauthorized" },
+      { status: 401 },
     );
   }
-  const { data, error } = await supabase
+
+  const { data: profile, error } = await supabase
     .from("profiles")
     .select("*")
-    .eq("id", user?.id)
+    .eq("id", user.id)
     .single();
 
   if (error) {
     return NextResponse.json(
       { success: false, message: error.message },
-      { status: 404 },
+      { status: 400 },
     );
   }
 
   return NextResponse.json({
     success: true,
-    profile: data,
+    profile,
   });
 }
