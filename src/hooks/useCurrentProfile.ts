@@ -12,6 +12,7 @@ const useCurrentProfile = () => {
       return res.data.profile;
     },
   });
+  
 };
 
 export default useCurrentProfile;
