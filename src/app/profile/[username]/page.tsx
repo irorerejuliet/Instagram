@@ -8,7 +8,7 @@ export default function ProfilePage() {
   const params = useParams();
 
   const username = params.username as string;
-
+console.log(username, "All users are available");
   const { profile, isLoading } = useProfile(username);
 
   if (isLoading) {

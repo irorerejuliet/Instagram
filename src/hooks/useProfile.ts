@@ -5,9 +5,10 @@ const useProfile = (username: string) => {
   const getProfile = useQuery({
     queryKey: ["profile", username],
     queryFn: async () => {
-      const res = await axios.get(`/api/profile/${username}`, {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        `/api/profile/${encodeURIComponent(username)}`,
+        { withCredentials: true },
+      );
 
       return res.data.profile;
     },

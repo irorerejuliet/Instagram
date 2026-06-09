@@ -5,8 +5,10 @@ import { AtSign, Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { sidebarLinks } from "../constants/sidebarLinks";
+import useCurrentProfile from "@/hooks/useCurrentProfile";
 
 const LargeNavBar = () => {
+  const { data: profile } = useCurrentProfile();
   return (
     <div className="w-full h-full relative">
       <Link
@@ -61,8 +63,12 @@ const LargeNavBar = () => {
         ))}
 
         {/* profile section */}
+
+        {/* profile section */}
         <Link
-          href="/profile"
+          href={
+            profile ? `/profile/${encodeURIComponent(profile.username)}` : "/"
+          }
           className="w-full h-auto flex items-center gap-x-4 p-3 bg-transparent hover:bg-gray-800/60 rounded-md ease-out duration-500 group"
         >
           <Image
