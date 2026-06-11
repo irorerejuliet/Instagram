@@ -138,7 +138,7 @@ export default function EditProfilePage() {
           disabled={isPending}
           className="bg-blue-500 px-6 py-2 rounded-lg text-white disabled:opacity-50"
         >
-          {isPending ? "Saving..." : "Save Changes"}
+          {isPending ? "Saving..." : "Saved Changes"}
         </button>
       </form>
     </div>
