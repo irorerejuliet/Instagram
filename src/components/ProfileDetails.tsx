@@ -11,8 +11,17 @@ import { Clapperboard, Grid3X3, Link2, Settings, Tag } from "lucide-react";
 import { useState } from "react";
 import { highlightData } from "./constants/highlightData";
 
+type ProfileProps = {
+  id: string;
+  username: string;
+  full_name: string | null;
+  bio: string | null;
+  avatar_url: string | null;
+  email: string;
+};
 
-const ProfileDetails = () => {
+
+const ProfileDetails = ({profile, }: {profile: ProfileProps}) => {
   const [activeTab, setActiveTab] = useState("posts");
   const [isContentVisible, setContentVisible] = useState(true);
 
@@ -26,12 +35,11 @@ const ProfileDetails = () => {
     }, 300);
   };
 
+
+
+
   return (
     <>
-      {/* 
-        pt-24 creates top clearance if you have a sticky navigation bar.
-        max-w-[935px] forces the large screen layout to match standard clean web structures.
-      */}
       <div className="w-full max-w-233.75 mx-auto hidden sm:block lg:pt-20 pb-12 px-4">
         {/* Your info section */}
         <div className="w-full flex items-center lg:gap-x-20 md:gap-x-16 sm:gap-x-12 gap-x-3.5 justify-center mb-12">
@@ -48,15 +56,18 @@ const ProfileDetails = () => {
           <div className="flex items-start flex-col">
             <div className="flex items-center gap-x-5 mb-4">
               <Link
-                href="/profile"
+                href={`/profile/${profile.username}`}
                 className="text-lg text-gray-200 font-normal"
               >
-                Code-With
+                {profile.username}
               </Link>
               <div className="flex items-center gap-x-2">
-                <button className="bg-[#1d1d1d] rounded-lg px-4 py-1.5 text-base text-white font-normal hover:bg-[#2f2f2f] ease-out duration-150">
+                <Link
+                  href="/edit-profile"
+                  className="bg-[#1d1d1d] rounded-lg px-4 py-1.5 text-base text-white font-normal hover:bg-[#2f2f2f] ease-out duration-150"
+                >
                   Edit profile
-                </button>
+                </Link>
                 <button className="bg-[#1d1d1d] rounded-lg px-4 py-1.5 text-base text-white font-normal hover:bg-[#2f2f2f] ease-out duration-150">
                   Veiw archive
                 </button>
@@ -77,25 +88,26 @@ const ProfileDetails = () => {
 
             {/* fullname */}
             <p className="text-base text-gray-100 font-normal">
-              FrontEnd Developer
+              {profile.full_name || "No name added"}
             </p>
 
             {/* Bio */}
             <p className="text-base text-gray-100 font-normal">
-              IRORERE JULIET <br />
+              {/* IRORERE JULIET <br />
               Web Enthusiast <br />
               LifeLong Learner <br />
-              web/App Developer <br />
+              web/App Developer <br /> */}
+              {profile.bio || "No bio yet"}
             </p>
 
             {/* Links */}
             <p className="text-base text-gray-100 font-normal flex items-center gap-x-2 mt-2">
               <Link2 size={16} />
               <Link
-                href="/"
+                href={`mailto:${profile.email}`}
                 className="text-blue-500 hover:underline font-medium"
               >
-                irorerejuliet@gmail.com
+                {profile.email}
               </Link>
             </p>
           </div>

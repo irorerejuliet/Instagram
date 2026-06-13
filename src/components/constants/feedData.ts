@@ -172,7 +172,7 @@ export const feedData = [
     username: "Irorere Joseph",
     time: "3h",
     profileImg: "/images/joseph.jpg",
-    postImg: "/images/spaggeti.jpg",
+    postImg: "/images/glasses.jpeg",
     mutualFrndimg1: "/images/tolu.jpg",
     mutualFrndimg2: "/images/gold.jpg",
     likeCount: "3,000, 000",
