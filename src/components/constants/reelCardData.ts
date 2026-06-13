@@ -33,7 +33,7 @@ export const reelCardData = [
     id: 6,
     video: "/videos/reel-6.mp4",
     likeCount: "10k",
-    commentCount: "3k",
+    commentCount: "54k",
   },
   {
     id: 7,
