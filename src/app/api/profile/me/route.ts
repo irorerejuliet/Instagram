@@ -48,7 +48,7 @@ console.log(user)
   if(!user){
     return NextResponse.json({
       success: false,
-      messgae: "Unauthorized"
+      messgae: "Unauthorized user"
     }, 
     {status: 401}
   )
