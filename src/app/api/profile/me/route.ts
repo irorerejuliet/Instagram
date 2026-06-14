@@ -12,7 +12,7 @@ export async function GET() {
 
   if (!user) {
     return NextResponse.json(
-      { success: false, message: "Unauthorized" },
+      { success: false, message: "Unauthorized Only" },
       { status: 401 },
     );
   }
