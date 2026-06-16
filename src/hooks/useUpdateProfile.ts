@@ -27,7 +27,7 @@ export default function useUpdateProfile() {
       queryClient.invalidateQueries({ queryKey: ["current-profile"] });
 
       // ✅ redirect
-      router.push("/profile");
+      router.push(`/profile/${encodeURIComponent(updatedProfile.username)}`);
     },
   });
 }

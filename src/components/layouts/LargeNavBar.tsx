@@ -62,8 +62,7 @@ const LargeNavBar = () => {
           </Link>
         ))}
 
-        {/* profile section */}
-
+        
         {/* profile section */}
         <Link
           href={
