@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const useCurrentProfile = () => {
+  
   return useQuery({
     queryKey: ["current-profile"],
     queryFn: async () => {

@@ -22,7 +22,7 @@ export default function EditProfilePage() {
   const [preview, setPreview] = useState<string | null>(null);
 
   const { register, handleSubmit, reset } = useForm<FormData>();
-
+  
   useEffect(() => {
     if (profile) {
       reset({
