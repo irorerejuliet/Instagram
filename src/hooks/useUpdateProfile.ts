@@ -11,23 +11,22 @@ type UpdateProfileData = {
 
 export default function useUpdateProfile() {
   const queryClient = useQueryClient();
-  const router = useRouter();
-
+ const router = useRouter()
   return useMutation({
     mutationFn: async (data: UpdateProfileData) => {
       const response = await api.patch("/profile/me", data);
       return response.data.profile;
     },
 
-    onSuccess: (updatedProfile) => {
-      // ✅ update cache
+   
+   
+    onSuccess: async (updatedProfile) => {
       queryClient.setQueryData(["current-profile"], updatedProfile);
+      await queryClient.invalidateQueries({ queryKey: ["current-profile"] });
 
-      // OR safer approach:
-      queryClient.invalidateQueries({ queryKey: ["current-profile"] });
-
-      // ✅ redirect
-      router.push(`/profile/${encodeURIComponent(updatedProfile.username)}`);
+      setTimeout(() => {
+        router.push(`/profile/${updatedProfile.username}`);
+      }, 100);
     },
   });
 }
