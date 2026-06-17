@@ -45,11 +45,13 @@ const ProfileDetails = ({profile, }: {profile: ProfileProps}) => {
         <div className="w-full flex items-center lg:gap-x-20 md:gap-x-16 sm:gap-x-12 gap-x-3.5 justify-center mb-12">
           <div className="shrink-0">
             <Image
-              src="/images/ifueko.jpg"
-              width={176}
-              height={176}
+              src={profile.avatar_url || "/images/ifueko.jpg"} // ✅ Checks Supabase row, falls back safely if null
+              width={150}
+              height={150}
               alt="profile-img"
-              className="rounded-full md:w-44 w-32 lg:h-44 md:h-44 sm:h-36 h-36 object-cover"
+              unoptimized // ✅ Stream cleanly straight from Supabase CDN to drop 500 crashes
+              className="rounded-full md:w-[150px] md:h-[150px] sm:w-[120px] sm:h-[120px] object-cover border-[4px] border-black bg-zinc-950"
+              priority
             />
           </div>
 
