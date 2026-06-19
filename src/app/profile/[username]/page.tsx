@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import useProfile from "@/hooks/useProfile";
 import ProfileDetails from "@/components/ProfileDetails";
+import ProfileSkeleton from "@/features/profileSection/ProfileSkeleton";
 
 export default function ProfilePage() {
   const params = useParams();
@@ -12,7 +13,7 @@ console.log(username, "All users are available");
   const { profile, isLoading } = useProfile(username);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <ProfileSkeleton/>;
   }
 
   if (!profile) {

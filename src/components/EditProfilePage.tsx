@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import useUpdateProfile from "@/hooks/useUpdateProfile";
 import { createClient } from "@/lib/supabase/client";
 import Image from "next/image";
+import EditProfileSkeleton from "./EditProfileSkeleton";
 
 type FormData = {
   full_name: string;
@@ -78,11 +79,7 @@ export default function EditProfilePage() {
   };
 
   if (isLoading) {
-    return (
-      <div className="flex h-screen w-full items-center justify-center bg-black">
-        <div className="h-8 w-8 animate-spin rounded-full border-2 border-zinc-700 border-t-zinc-400" />
-      </div>
-    );
+    return <EditProfileSkeleton />;
   }
 
   return (
